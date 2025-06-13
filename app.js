@@ -14,10 +14,22 @@ for (let i = 1; i <= frameSet1; i++) {
   set1.push(`webp/01 (${i}).webp`);
 }
 
-const frameSet2 = 16;
+const frameSet2 = 19;
 const set2 = [];
 for (let i = 1; i <= frameSet2; i++) {
   set2.push(`webp/01 (${i + 117}).webp`);
+}
+
+const frameSet3 = 22;
+const set3 = [];
+for (let i  = 1; i <= frameSet3; i++) {
+  set3.push(`webp/01 (${i+136}).webp`);
+}
+
+const frameSet4 = 12;
+const set4 = [];
+for (let i = 1; i <= frameSet4; i++) {
+  set4.push(`webp/01 (${i+158}).webp`);
 }
 
 function preloadImages(imageArray) {
@@ -29,6 +41,9 @@ function preloadImages(imageArray) {
 
 preloadImages(set1); // preload the 117 images
 preloadImages(set2);
+preloadImages(set3);
+preloadImages(set4);
+
 
 
 const obj1 = { currentFrame: 0 };
@@ -53,7 +68,7 @@ gsap.to(obj1, {
 });
 
 //Obj2 
-const totalFrames = 18;
+
 const maxIndex = set2.length - 1;
 const obj2 = { progress: 0 };
 const imgElement2 = document.getElementById("frame-sequence-2");
@@ -72,8 +87,54 @@ gsap.to(obj2, {
     pin: true,
   },
   onUpdate: () => {
-    const index = Math.floor(obj2.progress * (totalFrames - 1));
-    const imageIndex = Math.floor((index / (totalFrames - 1)) * maxIndex);
+    const index = Math.floor(obj2.progress * (frameSet2 - 1));
+    const imageIndex = Math.floor((index / (frameSet2 - 1)) * maxIndex);
     imgElement2.src = set2[imageIndex];
+  }
+});
+
+// === Obj3 ===
+const maxIndex3 = set3.length - 1;
+const obj3 = { progress: 0 };
+const imgElement3 = document.getElementById("frame-sequence-3");
+
+gsap.to(obj3, {
+  progress: 1,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".b3",
+    start: "top top",
+    end: "+=1000",
+    scrub: true,
+    markers: true,
+    pin: true,
+  },
+  onUpdate: () => {
+    const index = Math.floor(obj3.progress * (frameSet3 - 1));
+    const imageIndex = Math.floor((index / (frameSet3 - 1)) * maxIndex3);
+    imgElement3.src = set3[imageIndex];
+  }
+});
+
+// === Obj4 ===
+const maxIndex4 = set4.length - 1;
+const obj4 = { progress: 0 };
+const imgElement4 = document.getElementById("frame-sequence-4");
+
+gsap.to(obj4, {
+  progress: 1,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".b4",
+    start: "top top",
+    end: "+=1000",
+    scrub: true,
+    markers: true,
+    pin: true,
+  },
+  onUpdate: () => {
+    const index = Math.floor(obj4.progress * (frameSet4 - 1));
+    const imageIndex = Math.floor((index / (frameSet4 - 1)) * maxIndex4);
+    imgElement4.src = set4[imageIndex];
   }
 });

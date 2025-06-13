@@ -17,7 +17,7 @@ body {
   overflow: hidden;
 }
 
- .b2 img, .b3 img{
+ .b1 img, .b2 img, .b3 img, .b4 img{
   width: 100%;
   height: 100%;
   object-fit: cover;
