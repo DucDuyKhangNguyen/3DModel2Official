@@ -42,7 +42,7 @@ gsap.to(obj1, {
   scrollTrigger: {
     trigger: ".b1",
     start: "top top",
-    end: "+=4000", // adjust based on how long you want the scroll to last
+    end: "+=2000", // adjust based on how long you want the scroll to last
     scrub: true,
     markers: true,
     pin: true,
@@ -55,6 +55,7 @@ gsap.to(obj1, {
 //Obj2 
 const obj2 = {currentFrame : 0};
 const imgElement2 = document.getElementById("frame-sequence-2");
+const setStatus = false;
 
 gsap.set(imgElement2, { autoAlpha: 0 }); // hide initially
 
@@ -67,22 +68,20 @@ const playSet2 = gsap.to(obj2, {
   onUpdate: () => {
     imgElement2.src = set2[Math.round(obj2.currentFrame)];
   },
-  // onEnter: () => {
-  //   gsap.set(imgElement2, { autoAlpha: 1 });
-  //   playSet2.restart();
-  // },
-  // onLeave: () => {
-  //   gsap.set(imgElement2, { autoAlpha: 0 });
-  // },
+
 });
 ScrollTrigger.create({
   trigger: ".b2 img",
-  start: "top center",
+  start: "top top+=50%",
+  end: "bottom +=50%",
   onEnter: () => {
     gsap.to(imgElement2, { autoAlpha: 1, duration: 0.5 });
     playSet2.play(); // play forward
+    
+    
     console.log("ENTER")
-  },
+    },
+  
   onEnterBack: () => {
     gsap.to(imgElement2, { autoAlpha: 1, duration: 0.5 });
     playSet2.reverse(); // play in reverse when scrolling back up
@@ -95,6 +94,8 @@ ScrollTrigger.create({
   onLeaveBack: () => {
     gsap.to(imgElement2, { autoAlpha: 0, duration: 0.5 });
     console.log("LEAVEBACK")
+    playSet2.reverse();
+    
   }
   
 });
