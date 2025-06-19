@@ -52,50 +52,50 @@ gsap.to(obj1, {
   }
 });
 
-//Obj2 
-const obj2 = {currentFrame : 0};
-const imgElement2 = document.getElementById("frame-sequence-2");
-const setStatus = false;
+// //Obj2 
+// const obj2 = {currentFrame : 0};
+// const imgElement2 = document.getElementById("frame-sequence-2");
+// const setStatus = false;
 
-gsap.set(imgElement2, { autoAlpha: 0 }); // hide initially
+// gsap.set(imgElement2, { autoAlpha: 0 }); // hide initially
 
 
-const playSet2 = gsap.to(obj2, {
-  currentFrame: frameSet2 - 1,
-  duration: 1, // adjust duration for playback speed
-  ease: "none",
-  paused: true,
-  onUpdate: () => {
-    imgElement2.src = set2[Math.round(obj2.currentFrame)];
-  },
+// const playSet2 = gsap.to(obj2, {
+//   currentFrame: frameSet2 - 1,
+//   duration: 1, // adjust duration for playback speed
+//   ease: "none",
+//   paused: true,
+//   onUpdate: () => {
+//     imgElement2.src = set2[Math.round(obj2.currentFrame)];
+//   },
 
-});
-ScrollTrigger.create({
-  trigger: ".b2 img",
-  start: "top top+=50%",
-  end: "bottom +=50%",
-  onEnter: () => {
-    gsap.to(imgElement2, { autoAlpha: 1, duration: 0.5 });
-    playSet2.play(); // play forward
+// });
+// ScrollTrigger.create({
+//   trigger: ".b2 img",
+//   start: "top top+=50%",
+//   end: "bottom +=50%",
+//   onEnter: () => {
+//     gsap.to(imgElement2, { autoAlpha: 1, duration: 0.5 });
+//     playSet2.play(); // play forward
     
     
-    console.log("ENTER")
-    },
+//     console.log("ENTER")
+//     },
   
-  onEnterBack: () => {
-    gsap.to(imgElement2, { autoAlpha: 1, duration: 0.5 });
-    playSet2.reverse(); // play in reverse when scrolling back up
-    console.log("ENTERBACK")
-  },
-  onLeave: () => {
-    gsap.to(imgElement2, { autoAlpha: 0, duration: 0.5 });
-    console.log("LEAVE")
-  },
-  onLeaveBack: () => {
-    gsap.to(imgElement2, { autoAlpha: 0, duration: 0.5 });
-    console.log("LEAVEBACK")
-    playSet2.reverse();
+//   onEnterBack: () => {
+//     gsap.to(imgElement2, { autoAlpha: 1, duration: 0.5 });
+//     playSet2.reverse(); // play in reverse when scrolling back up
+//     console.log("ENTERBACK")
+//   },
+//   onLeave: () => {
+//     gsap.to(imgElement2, { autoAlpha: 0, duration: 0.5 });
+//     console.log("LEAVE")
+//   },
+//   onLeaveBack: () => {
+//     gsap.to(imgElement2, { autoAlpha: 0, duration: 0.5 });
+//     console.log("LEAVEBACK")
+//     playSet2.reverse();
     
-  }
+//   }
   
-});
+// });
