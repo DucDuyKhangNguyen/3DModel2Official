@@ -52,6 +52,32 @@ gsap.to(obj1, {
   }
 });
 
+ScrollTrigger.create({
+  trigger: ".b1",
+  start: "bottom -30%",     // when the 117-frame animation ends
+  end: "+=100%",           // adjust scroll distance as needed
+  scrub: true,
+  pin: true,               // keep image pinned while .content comes in
+  markers: true,
+  onEnter: () => {
+    console.log("Pinned final frame");
+  }
+});
+
+// 3. Animate .content as it scrolls into view
+// gsap.from(".content", {
+//   opacity: 0,
+//   y: 100,
+//   duration: 1,
+
+//   scrollTrigger: {
+//     trigger: ".content",
+//     start: "top 80%",
+//     end: "top 50%",
+//     scrub: true,
+//     markers: true
+//   }
+// });
 // //Obj2 
 // const obj2 = {currentFrame : 0};
 // const imgElement2 = document.getElementById("frame-sequence-2");
