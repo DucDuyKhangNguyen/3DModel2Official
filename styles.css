@@ -4,17 +4,97 @@
   padding: 0;
 }
 
-body {
-  background: white;
+
+@font-face {
+  font-family: 'Montreal Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montreal Regular'), url('Montreal-Regular.woff') format('woff');
+  }
+  
+
+  @font-face {
+  font-family: 'Montreal Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montreal Bold'), url('Montreal-Bold.woff') format('woff');
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montreal Regular";
+  text-decoration: none;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: black;
 }
 
-.block {
+.preloader{
+  /* background-color: #000; */
+  height: 100vh;
+  width: 100%;
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  overflow: hidden;
+  display: none;
+  pointer-events: none;
+}
+
+
+#main {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background-color: rgb(232,232,227/1);
+}
+
+header{ 
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: clamp(2.25rem, 2.1786rem + 0.3571vi, 2.5rem);
+  padding-right: clamp(2.25rem, 2.1786rem + 0.3571vi, 2.5rem);
+}
+
+header .logo-left{ 
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+header .logo-left {
+  color: white;
+  font-size: 18px;
+
+}
+
+header .menu {
+  width: 50%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+
+}
+
+/* .block {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
+
+
 }
 
  .b1 img, .b2 img, .b3 img, .b4 img{
@@ -25,12 +105,12 @@ body {
   top: 0;
   left: 0;
   
-}
-
+} */
+/* 
 #frame-sequence-1 {
-  position: relative;  /* or remove position entirely */
-  width: 100%;
+  position: relative;  or remove position entirely */
+  /* width: 100%;
   display: block;
   height: auto;
   z-index: 1;
-}
+} */
