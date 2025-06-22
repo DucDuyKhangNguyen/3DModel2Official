@@ -7,7 +7,6 @@ ScrollSmoother.create({
   smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
 });
 
-
 const frameSet1 = 117;
 const set1 = [];
 for (let i = 1; i <= frameSet1; i++) {
@@ -22,18 +21,18 @@ for (let i = 1; i <= frameSet2; i++) {
 
 const frameSet3 = 22;
 const set3 = [];
-for (let i  = 1; i <= frameSet3; i++) {
-  set3.push(`webp/01 (${i+136}).webp`);
+for (let i = 1; i <= frameSet3; i++) {
+  set3.push(`webp/01 (${i + 136}).webp`);
 }
 
 const frameSet4 = 12;
 const set4 = [];
 for (let i = 1; i <= frameSet4; i++) {
-  set4.push(`webp/01 (${i+158}).webp`);
+  set4.push(`webp/01 (${i + 158}).webp`);
 }
 
 function preloadImages(imageArray) {
-  imageArray.forEach(src => {
+  imageArray.forEach((src) => {
     const img = new Image();
     img.src = src;
   });
@@ -43,8 +42,6 @@ preloadImages(set1); // preload the 117 images
 preloadImages(set2);
 preloadImages(set3);
 preloadImages(set4);
-
-
 
 const obj1 = { currentFrame: 0 };
 const imgElement1 = document.getElementById("frame-sequence-1");
@@ -64,16 +61,14 @@ gsap.to(obj1, {
   },
   onUpdate: () => {
     imgElement1.src = set1[Math.floor(obj1.currentFrame)];
-  }
+  },
 });
 
-//Obj2 
+//Obj2
 
 const maxIndex = set2.length - 1;
 const obj2 = { progress: 0 };
 const imgElement2 = document.getElementById("frame-sequence-2");
-
-
 
 gsap.to(obj2, {
   progress: 1,
@@ -90,7 +85,7 @@ gsap.to(obj2, {
     const index = Math.floor(obj2.progress * (frameSet2 - 1));
     const imageIndex = Math.floor((index / (frameSet2 - 1)) * maxIndex);
     imgElement2.src = set2[imageIndex];
-  }
+  },
 });
 
 // === Obj3 ===
@@ -113,7 +108,7 @@ gsap.to(obj3, {
     const index = Math.floor(obj3.progress * (frameSet3 - 1));
     const imageIndex = Math.floor((index / (frameSet3 - 1)) * maxIndex3);
     imgElement3.src = set3[imageIndex];
-  }
+  },
 });
 
 // === Obj4 ===
@@ -136,5 +131,5 @@ gsap.to(obj4, {
     const index = Math.floor(obj4.progress * (frameSet4 - 1));
     const imageIndex = Math.floor((index / (frameSet4 - 1)) * maxIndex4);
     imgElement4.src = set4[imageIndex];
-  }
+  },
 });
