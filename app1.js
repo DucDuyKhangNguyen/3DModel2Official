@@ -31,7 +31,7 @@ preloadImages(set2);
 
 const obj1 = { currentFrame: 0 };
 const imgElement1 = document.getElementById("frame-sequence-1");
-hasPinned = false;
+
 
 // Scroll-controlled animation across all 117 images (divided across your chunks)
 gsap.to(obj1, {
