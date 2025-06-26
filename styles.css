@@ -78,12 +78,12 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #1f1f1f;
-  color: #fbfbfb;
-  line-height: 1.6;
-  font-weight: 400;
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
   overflow-x: hidden;
+  background-color: #000;
+  color: white;
 }
 
 
@@ -177,18 +177,27 @@ p {
   width:100%;
 }
 
-.hero {
+/* .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding-top: 6rem;
   position: relative;
   overflow: hidden;
+  z-index:4;
+} */
 
-
-
-
+.hero {
+  height: 100vh;
+  background: url('acf01-hero.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
 }
+
 .hero-container {
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -275,6 +284,7 @@ p {
   transform: translateY(50px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 } */
+  z-index:3;
 }
 .ethoss {
 
@@ -333,3 +343,9 @@ p {
   height: auto;
   z-index: 1;
 }  
+
+.innerBox {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}

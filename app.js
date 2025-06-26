@@ -80,37 +80,33 @@ function initAnimations() {
     });
   
 
-  const sections = [".ethos", "ethoss"];
-    sections.forEach((section, index) => {
-      gsap.from(section, {
-        scrollTrigger: {
-          trigger: section,
-          markers:true,
-          start: 'top 85%',
-          end: 'bottom 10%',
-          toggleActions: 'play none none reverse'
-        },
-        duration: 1,
-        y: 100,
-        opacity: 0,
-        ease: 'power2.out',
-        delay: index * 0.1
-      })
+  // const sections = [".ethos", "ethoss"];
+  //   sections.forEach((section, index) => {
+  //     gsap.from(section, {
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         markers:true,
+  //         start: 'top 85%',
+  //         end: 'bottom 10%',
+  //         toggleActions: 'play none none reverse'
+  //       },
+  //       duration: 1,
+  //       y: 100,
+  //       opacity: 0,
+  //       ease: 'power2.out',
+  //       delay: index * 0.1
+  //     })
+  //   })
+    const t1 = gsap.timeline( {
+      scrollTrigger: {
+        trigger: "#app",
+        start: "top top",
+        end: "+=4000",
+        marker: true,
+        scrub: true,
+      }
     })
 
-    // gsap.from(".ethos", {
-    //   scrollTrigger: {
-    //     trigger: ".ethos",
-    //     start: 'top 80%',
-    //     end: 'bottom 20%',
-    //     toggleActions: 'play none none reverse'
-    //   },
-    //   duration: 1,
-    //   y:100,
-    //   opacity: 'power2.out',
-    //   delay: index*0.1
-    // })
-       
       // Scroll-controlled animation across all 117 images (divided across your chunks)
     gsap.to(obj1, {
       currentFrame: set1.length - 1,
@@ -120,7 +116,7 @@ function initAnimations() {
         trigger: ".b1",
         start: "top top",
         end: "+=2000", // how long it takes to scrub through all images
-        scrub: 1,
+        scrub: true,
         pin: true,
         markers: true,
         onUpdate: (self) => {
@@ -131,8 +127,5 @@ function initAnimations() {
       },
     });
 
-  
-
-  
 
 }
